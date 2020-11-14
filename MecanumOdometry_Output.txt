@@ -1,0 +1,12 @@
+Current X position in the global coordinate system
+     ⎛  (1 - cos(Δ_Θ_r))⋅sin(Tgt)   sin(Δ_Θ_r)⋅cos(Tgt)⎞        ⎛(cos(Δ_Θ_r) - 1)⋅cos(Tgt)   sin(Δ_Θ_r)⋅sin(Tgt)⎞      
+Δ_Xr⋅⎜- ───────────────────────── + ───────────────────⎟ + Δ_Yr⋅⎜───────────────────────── - ───────────────────⎟ + Xgt
+     ⎝            Δ_Θ_r                    Δ_Θ_r       ⎠        ⎝          Δ_Θ_r                    Δ_Θ_r       ⎠      
+
+Current Y position in the global coordinate system
+     ⎛(1 - cos(Δ_Θ_r))⋅cos(Tgt)   sin(Δ_Θ_r)⋅sin(Tgt)⎞        ⎛(cos(Δ_Θ_r) - 1)⋅sin(Tgt)   sin(Δ_Θ_r)⋅cos(Tgt)⎞      
+Δ_Xr⋅⎜───────────────────────── + ───────────────────⎟ + Δ_Yr⋅⎜───────────────────────── + ───────────────────⎟ + Ygt
+     ⎝          Δ_Θ_r                    Δ_Θ_r       ⎠        ⎝          Δ_Θ_r                    Δ_Θ_r       ⎠      
+
+Current rotation in the global coordinate system
+Δ_Θ_r + Tgt

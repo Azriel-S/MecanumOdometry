@@ -1,8 +1,12 @@
 from sympy import *
+from contextlib import redirect_stdout
+from os.path import abspath, dirname, join
+
+
 init_printing(use_unicode=True, wrap_line=False)
 
 
-def solve_kinematics():
+def solve_kinematics(source_path):
     # equation at the end of 2.3
     Wlf, Wlb, Wrf, Wrb = symbols('Wlf Wlb Wrf Wrb')     # Wheel angular speed in radians
     l = symbols('l')                                    # l is half the width between wheels - left right distance
@@ -34,6 +38,21 @@ def solve_kinematics():
     angular_velocity_robot = velocity[2]
     pprint(angular_velocity_robot)
 
+    with open(source_path, 'w', encoding='utf-8') as f:
+        with redirect_stdout(f):
+            print('Velocity of the robot relative to itself in the x direction')
+            pprint(velocity_robot_x)
+            print()
+
+            print('Velocity of the robot relative to itself in the y direction')
+            pprint(velocity_robot_y)
+            print()
+
+            print('Angular Velocity of the robot relative to itself - how fast the robot is rotating')
+            pprint(angular_velocity_robot)
+
 
 if __name__ == '__main__':
-    solve_kinematics()
+    BASE_PATH = dirname(abspath(__file__))
+    SOURCE_PATH = join(BASE_PATH, 'MecanumKinematics_Output.txt')
+    solve_kinematics(SOURCE_PATH)

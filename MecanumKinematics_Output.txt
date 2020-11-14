@@ -1,0 +1,14 @@
+Velocity of the robot relative to itself in the x direction
+R⋅Wlb   R⋅Wlf   R⋅Wrb   R⋅Wrf
+───── + ───── + ───── + ─────
+  4       4       4       4  
+
+Velocity of the robot relative to itself in the y direction
+R⋅Wlb   R⋅Wlf   R⋅Wrb   R⋅Wrf
+───── - ───── - ───── + ─────
+  4       4       4       4  
+
+Angular Velocity of the robot relative to itself - how fast the robot is rotating
+    R⋅Wlb       R⋅Wlf       R⋅Wrb       R⋅Wrf  
+- ───────── - ───────── + ───────── + ─────────
+  4⋅(b + l)   4⋅(b + l)   4⋅(b + l)   4⋅(b + l)

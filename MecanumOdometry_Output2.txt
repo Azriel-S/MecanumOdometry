@@ -1,0 +1,12 @@
+Current X position in the global coordinate system
+         /  (1 - cos(Delta_Theta_r))*sin(Tgt)   sin(Delta_Theta_r)*cos(Tgt)\            /(cos(Delta_Theta_r) - 1)*cos(Tgt)   sin(Delta_Theta_r)*sin(Tgt)\      
+Delta_Xr*|- --------------------------------- + ---------------------------| + Delta_Yr*|--------------------------------- - ---------------------------| + Xgt
+         \            Delta_Theta_r                    Delta_Theta_r       /            \          Delta_Theta_r                    Delta_Theta_r       /      
+
+Current Y position in the global coordinate system
+         /(1 - cos(Delta_Theta_r))*cos(Tgt)   sin(Delta_Theta_r)*sin(Tgt)\            /(cos(Delta_Theta_r) - 1)*sin(Tgt)   sin(Delta_Theta_r)*cos(Tgt)\      
+Delta_Xr*|--------------------------------- + ---------------------------| + Delta_Yr*|--------------------------------- + ---------------------------| + Ygt
+         \          Delta_Theta_r                    Delta_Theta_r       /            \          Delta_Theta_r                    Delta_Theta_r       /      
+
+Current rotation in the global coordinate system
+Delta_Theta_r + Tgt

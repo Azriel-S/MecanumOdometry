@@ -1,9 +1,12 @@
 from sympy import *
+from contextlib import redirect_stdout
+from os.path import abspath, dirname, join
+
 
 init_printing(use_unicode=True, wrap_line=False)
 
 
-def solve_odometry():
+def solve_odometry(source_path):
     # length, width, wheel_diameter = symbols('l w R')
     # encoder_left_front, encoder_right_front, encoder_left_rear, encoder_right_rear = symbols('Elf Erf Elr Err')
     # position_left_front, position_right_front, position_left_rear, position_right_rear = symbols('Tlf Trf Tlr Trr')
@@ -51,6 +54,21 @@ def solve_odometry():
     rotation_global_current = position_global_current[2]
     pprint(rotation_global_current)
 
+    with open(source_path, 'w', encoding='utf-8') as f:
+        with redirect_stdout(f):
+            print('Current X position in the global coordinate system')
+            pprint(x_position_global_current)
+            print()
+
+            print('Current Y position in the global coordinate system')
+            pprint(y_position_global_current)
+            print()
+
+            print('Current rotation in the global coordinate system')
+            pprint(rotation_global_current)
+
 
 if __name__ == '__main__':
-    solve_odometry()
+    BASE_PATH = dirname(abspath(__file__))
+    SOURCE_PATH = join(BASE_PATH, 'MecanumOdometry_Output.txt')
+    solve_odometry(SOURCE_PATH)
