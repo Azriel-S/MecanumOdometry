@@ -1,12 +1,12 @@
 Current X position in the global coordinate system
-     ⎛  (1 - cos(Δ_Θ_r))⋅sin(Tgt)   sin(Δ_Θ_r)⋅cos(Tgt)⎞        ⎛(cos(Δ_Θ_r) - 1)⋅cos(Tgt)   sin(Δ_Θ_r)⋅sin(Tgt)⎞      
-Δ_Xr⋅⎜- ───────────────────────── + ───────────────────⎟ + Δ_Yr⋅⎜───────────────────────── - ───────────────────⎟ + Xgt
-     ⎝            Δ_Θ_r                    Δ_Θ_r       ⎠        ⎝          Δ_Θ_r                    Δ_Θ_r       ⎠      
+                        ⎛  (1 - cos(rotation_robot_change))⋅sin(θ_global_last)   sin(rotation_robot_change)⋅cos(θ_global_last)⎞                           ⎛(cos(rotation_robot_change) - 1)⋅cos(θ_global_last)   sin(rotation_robot_change)⋅sin(θ_global_last)⎞                
+position_x_robot_change⋅⎜- ─────────────────────────────────────────────────── + ─────────────────────────────────────────────⎟ + position_y_robot_change⋅⎜─────────────────────────────────────────────────── - ─────────────────────────────────────────────⎟ + x_global_last
+                        ⎝                 rotation_robot_change                              rotation_robot_change            ⎠                           ⎝               rotation_robot_change                              rotation_robot_change            ⎠                
 
 Current Y position in the global coordinate system
-     ⎛(1 - cos(Δ_Θ_r))⋅cos(Tgt)   sin(Δ_Θ_r)⋅sin(Tgt)⎞        ⎛(cos(Δ_Θ_r) - 1)⋅sin(Tgt)   sin(Δ_Θ_r)⋅cos(Tgt)⎞      
-Δ_Xr⋅⎜───────────────────────── + ───────────────────⎟ + Δ_Yr⋅⎜───────────────────────── + ───────────────────⎟ + Ygt
-     ⎝          Δ_Θ_r                    Δ_Θ_r       ⎠        ⎝          Δ_Θ_r                    Δ_Θ_r       ⎠      
+                        ⎛(1 - cos(rotation_robot_change))⋅cos(θ_global_last)   sin(rotation_robot_change)⋅sin(θ_global_last)⎞                           ⎛(cos(rotation_robot_change) - 1)⋅sin(θ_global_last)   sin(rotation_robot_change)⋅cos(θ_global_last)⎞                
+position_x_robot_change⋅⎜─────────────────────────────────────────────────── + ─────────────────────────────────────────────⎟ + position_y_robot_change⋅⎜─────────────────────────────────────────────────── + ─────────────────────────────────────────────⎟ + y_global_last
+                        ⎝               rotation_robot_change                              rotation_robot_change            ⎠                           ⎝               rotation_robot_change                              rotation_robot_change            ⎠                
 
 Current rotation in the global coordinate system
-Δ_Θ_r + Tgt
+rotation_robot_change + θ_global_last

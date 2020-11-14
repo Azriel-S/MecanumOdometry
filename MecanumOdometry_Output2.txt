@@ -1,12 +1,12 @@
 Current X position in the global coordinate system
-         /  (1 - cos(Delta_Theta_r))*sin(Tgt)   sin(Delta_Theta_r)*cos(Tgt)\            /(cos(Delta_Theta_r) - 1)*cos(Tgt)   sin(Delta_Theta_r)*sin(Tgt)\      
-Delta_Xr*|- --------------------------------- + ---------------------------| + Delta_Yr*|--------------------------------- - ---------------------------| + Xgt
-         \            Delta_Theta_r                    Delta_Theta_r       /            \          Delta_Theta_r                    Delta_Theta_r       /      
+                        /  (1 - cos(rotation_robot_change))*sin(theta_global_last)   sin(rotation_robot_change)*cos(theta_global_last)\                           /(cos(rotation_robot_change) - 1)*cos(theta_global_last)   sin(rotation_robot_change)*sin(theta_global_last)\                
+position_x_robot_change*|- ------------------------------------------------------- + -------------------------------------------------| + position_y_robot_change*|------------------------------------------------------- - -------------------------------------------------| + x_global_last
+                        \                   rotation_robot_change                                  rotation_robot_change              /                           \                 rotation_robot_change                                  rotation_robot_change              /                
 
 Current Y position in the global coordinate system
-         /(1 - cos(Delta_Theta_r))*cos(Tgt)   sin(Delta_Theta_r)*sin(Tgt)\            /(cos(Delta_Theta_r) - 1)*sin(Tgt)   sin(Delta_Theta_r)*cos(Tgt)\      
-Delta_Xr*|--------------------------------- + ---------------------------| + Delta_Yr*|--------------------------------- + ---------------------------| + Ygt
-         \          Delta_Theta_r                    Delta_Theta_r       /            \          Delta_Theta_r                    Delta_Theta_r       /      
+                        /(1 - cos(rotation_robot_change))*cos(theta_global_last)   sin(rotation_robot_change)*sin(theta_global_last)\                           /(cos(rotation_robot_change) - 1)*sin(theta_global_last)   sin(rotation_robot_change)*cos(theta_global_last)\                
+position_x_robot_change*|------------------------------------------------------- + -------------------------------------------------| + position_y_robot_change*|------------------------------------------------------- + -------------------------------------------------| + y_global_last
+                        \                 rotation_robot_change                                  rotation_robot_change              /                           \                 rotation_robot_change                                  rotation_robot_change              /                
 
 Current rotation in the global coordinate system
-Delta_Theta_r + Tgt
+rotation_robot_change + theta_global_last

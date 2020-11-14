@@ -3,16 +3,11 @@ from contextlib import redirect_stdout
 from os.path import abspath, dirname, join
 
 
-init_printing(use_unicode=True, wrap_line=False)
+init_printing(use_unicode=False, wrap_line=False)
 
 
 def solve_odometry(source_path):
-    # length, width, wheel_diameter = symbols('l w R')
-    # encoder_left_front, encoder_right_front, encoder_left_rear, encoder_right_rear = symbols('Elf Erf Elr Err')
-    # position_left_front, position_right_front, position_left_rear, position_right_rear = symbols('Tlf Trf Tlr Trr')
-    # velocity_left_front, velocity_right_front, velocity_left_rear, velocity_right_rear = symbols('Wlf Wrf Wlr Wrr')
-    x_global_current, y_global_current, theta_global_current = symbols('Xgt1 Ygt1 Tgt1')
-    x_global_last, y_global_last, theta_global_last = symbols('Xgt Ygt Tgt')
+    x_global_last, y_global_last, theta_global_last = symbols('x_global_last, y_global_last, theta_global_last')
 
     M1_position_global = Matrix([[x_global_last], [y_global_last], [theta_global_last]])
     pprint(M1_position_global)
@@ -24,7 +19,8 @@ def solve_odometry(source_path):
     pprint(M2_position_global)
     print()
 
-    position_x_robot_change, position_y_robot_change, rotation_robot_change = symbols('Delta_Xr Delta_Yr Delta_Theta_r')
+    position_x_robot_change, position_y_robot_change, rotation_robot_change = \
+        symbols('position_x_robot_change, position_y_robot_change, rotation_robot_change')
 
     M3_position_global = Matrix([[sin(rotation_robot_change)/rotation_robot_change, -(1-cos(rotation_robot_change))/rotation_robot_change, 0],
                                  [(1-cos(rotation_robot_change))/rotation_robot_change, sin(rotation_robot_change)/rotation_robot_change, 0],
@@ -70,5 +66,5 @@ def solve_odometry(source_path):
 
 if __name__ == '__main__':
     BASE_PATH = dirname(abspath(__file__))
-    SOURCE_PATH = join(BASE_PATH, 'MecanumOdometry_Output.txt')
+    SOURCE_PATH = join(BASE_PATH, 'MecanumOdometry_Output2.txt')
     solve_odometry(SOURCE_PATH)
